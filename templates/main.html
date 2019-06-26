@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Restaurant Recommendation</title>
+</head>
+<h1>Restaurant Recommender System</h1>
+<form action="{{ url_for('main') }}" method="POST" align="center">
+    <fieldset>
+        <legend>Input values:</legend>
+        Customer No.:
+        <input name="user" type="number" required>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if kp %}
+    <h2>USER : {{i}}</h2>
+    <h2>####KNOWN POSITIVES####</h2>
+     {% for x in kp %}
+            <h3>Restaurant : {{x[0]}} || Categories : {{x[1]}}</h3>
+     {% endfor %}
+        <br>
+    <h2>####RECOMMENDED####</h2>
+     {% for y in r %}
+            <h3>Restaurant : {{y[0]}} || Categories : {{y[1]}}</h3>
+     {% endfor %}
+        <br>
+    {% endif %}  
+</div><br>
+</html>

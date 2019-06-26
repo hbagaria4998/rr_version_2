@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Recommender</title>
+  
+  
+  
+      <link rel="stylesheet" href="static/style.css">
+
+  
+</head>
+
+<body>
+
+  <html lang="en">
+<head>
+  <title>Restaurant Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-----Bootstrap CDN + jQuery----->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-----Google Fonts----->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Lato" rel="stylesheet" type="text/css">
+<!----Font Awesome----------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">  
+
+  
+<body id="myPage" data-spy="scroll" data-trget=".navbar" data-offset="60">
+<!--------------NAVBAR------------>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">ToRonto</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home">HOME</a></li>
+      
+        <li><a href="#hours">RECOMMENDATIONS</a></li>
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>  
+
+
+
+  
+<div id='home' class="jumbotron text-center">
+  <h1> Restaurant Recommendation</h1> 
+  <p>Enter User Id</p>
+
+
+<form action="{{ url_for('main') }}" method="POST" class="form-inline">
+    <div class="input-group">
+      <fieldset>
+      <input name = "user" type="number" class="form-control" size="50" placeholder="User Id" required>
+      <div class="input-group-btn">  
+      <input type="submit" value="Get Recommendations" class="btn btn-danger">
+        </fieldset>
+      </div>
+    </div>
+  </form>  
+
+</div>
+  
+
+<!----------Known Positives Section----------->
+ 
+ <div id="hours" class="container-fluid">
+  {% if kp %}
+  <h2>USER : {{i}}</h2>
+  <h2>KNOWN POSITIVES</h2>
+  
+ <!------Table---->  
+<div class="container">           
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Restaurant</th>
+        <th class="text-center">Categories</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% if kp|length>=10 %}
+      {% for x in kp[:10] %}
+      <tr>
+        <td><a href="{{ url_for('details',rname = x[0],cat = x[1]) }}">{{x[0]}}</a></td>
+        <td>{{x[1]}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      {% if kp|length<10 %}
+      {% for x in kp %}
+      <tr>
+        <td><a href="{{ url_for('details',rname = x[0],cat = x[1]) }}">{{x[0]}}</a></td>
+        <td>{{x[1]}}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</div> 
+   {%endif%}
+</div>  <!---KP end---->
+
+
+<!----------Recommendation Section----------->
+ <div id="hours" class="container-fluid">
+  {% if r %}
+  <h2>USER : {{i}}</h2>
+  <h2>RECOMMENDED</h2>
+  
+ <!------Table---->  
+<div class="container">           
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Restaurant</th>
+        <th class="text-center">Categories</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for y in r %}
+      <tr>
+        <td><a href="{{ url_for('details',rname = y[0],cat = y[1]) }}">{{y[0]}}</a></td>
+        <td>{{y[1]}}</td>
+      </tr>
+       {% endfor %}
+    </tbody>
+  </table>
+</div> 
+ {%endif%}  
+</div>  <!--Recommendation- end---->
+
+ 
+  
+
+  
+</body>
+</html>
+  
+  
+
+    <script  src="static/script.js"></script>
+
+
+
+
+</body>
+
+</html>
