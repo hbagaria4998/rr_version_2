@@ -3127,7 +3127,7 @@ html.ios.iphone .close-button-refine-by {
 /* COLUMN 1 - MAIN IMAGE */
 .main-image {
   max-width: 420px;
-  height: 504px;
+  height: auto;
   float: right;
   position: relative;
   border: 1px solid #d6d6d6;
@@ -4142,9 +4142,18 @@ fieldset.quantity::selection,
         <div class="main-image">
           <script type="text/javascript">
   var imageURLs = [
-       "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=931&q=80"
-     , "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-     , "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=353&q=80"
+       "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500", 
+       "https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500", 
+       "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/1482803/pexels-photo-1482803.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+       "https://images.pexels.com/photos/370984/pexels-photo-370984.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500"
+
   ];
   function getImageTag() {
     var img = '<img src=\"';
@@ -4184,7 +4193,21 @@ fieldset.quantity::selection,
         <p class="loyalty-copy"><span class="green">Address</span> {{address}}</p>
         <br>
         <br>
-          <input type="submit" name="submit" class="add-to-bag-button" value={{stars}} />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+         <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>
+<p><span class="fa fa-star checked"></span>{{ stars }}</p>
+
+
+<style type="text/css">
+  .checked {
+  color: orange;
+}
+</style>
+
           <div id="reg-login-details-box">
             <input id="email" name="email" type="email" class="formfield reg-login-item" value="" placeholder="Enter your email address"> <input id="password" name="password" class="formfield-pword formfield reg-login-item" type="password" value="" placeholder="Enter your password">
             <input class="email-signup-button reg-login-item" type="submit" value="Login with Your Email">
@@ -4216,7 +4239,13 @@ fieldset.quantity::selection,
             
             
           
-          <p><strong>Supplier Code</strong><br/><table>
+          <p><strong>Sun  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Mon  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Tue  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Wed  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Thu  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Fri  </strong><br/><strong>10:30 am-11:00 pm</strong>
+          <p><strong>Sat  </strong><br/><strong>10:30 am-11:00 pm</strong>
 
 </table></p>
         </div>

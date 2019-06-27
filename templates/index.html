@@ -41,14 +41,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">ToRonto</a>
+      <a class="navbar-brand" href="{{ url_for('main')}}">FooRonto</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#home">HOME</a></li>
-      
+       <li><a href="#about">ABOUT</a></li>
+       {% if i %}
         <li><a href="#hours">RECOMMENDATIONS</a></li>
-        
+        {% endif %}
+        <li><a href="#footer">CONTACT</a></li>
        
       </ul>
     </div>
@@ -73,9 +75,76 @@
       </div>
     </div>
   </form>  
-
 </div>
+<!---------testimonials section----->  
+<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+    <h4>"There's no better feeling in the world than a warm pizza box on your lap"<br><span style="font-style:normal;">Kevin James</span></h4>
+    </div>
+    <div class="item">
+      <h4>"Anything is good if it's made of chocolate"<br><span style="font-style:normal;">Jo Brand</span></h4>
+    </div>
+    <div class="item">
+      <h4>"Snack time heals all wounds"<br><span style="font-style:normal;">Bridger Winegar</span></h4>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>  
+
+ <!----------About Section-----------> 
+<div id="about" class="container-fluid text-center">
+  <h2>About FooRonto</h2>
+  <h4>FooRonto is a web based hybrid restaurant recommendation system. It recommend restaurants to users in Toronto city based on their past visited restaurant history. It uses data from users thar have similar taste in restaurants. </h4> 
+  <h4>We took the <a href="https://www.yelp.com/dataset">Yelp Dataset</a>. From all the businesses we filtered out all the restaurants that are in Toronto. To give recommendations to users we use <a href="https://lyst.github.io/lightfm/docs/home.html">Lightfm</a>. LightFM is a Python implementation of a number of popular recommendation algorithms for both implicit and explicit feedback. It is a hybrid recommendation system that combines the features of collaborative filtering and content based filtering.</h4>
   
+</div>
+
+<!----------Dish Section------------->
+<div class="container-fluid text-center">
+  <h2>Must try near you</h2>
+ 
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail img-circle">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5bmGI-RgcM2KOncPAdb-FJj9-FgZoKo8hz8pDwDYihujR9GSJig" alt="lamb">
+        <p><strong>Lahore Tikka House</strong></p>
+        <p>Indian, Halal, Barbeque, Pakistani, Restaurants</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="https://media.gettyimages.com/photos/brunch-for-two-people-with-avocado-toast-fried-egg-salad-cappuccino-picture-id523713496?s=2048x2048" alt="lamb">
+        <p><strong>Odd Seoul</strong></p>
+        <p>Bars, Dive Bars, Korean, Restaurants, Asian Fusion, Nightlife</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="https://media.gettyimages.com/photos/grilled-fish-with-lentil-puree-and-vegetables-seen-from-above-picture-id168613528?s=2048x2048" alt="lamb">
+        <p><strong>The Emerson</strong></p>
+        <p>Restaurants, Canadian (New)</p>
+      </div>
+    </div>
+</div>   
+
 
 <!----------Known Positives Section----------->
  
@@ -147,20 +216,111 @@
  {%endif%}  
 </div>  <!--Recommendation- end---->
 
- 
   
 
   
 </body>
 </html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style type="text/css">body {
+  font-family: 'Roboto', sans-serif;
+}
+
+footer {
+  background:#363b3f;
+  padding-bottom: 20px;
+ }
+
+footer p {
+  font-size:12px;
+  color:#fff;
+  text-align:center;
+  padding-top: 20px;
+}
+
+footer ul {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 0px;
+}
+
+footer li {
+    display: inline-block;
+    margin: 4px;
+}
+
+footer li a {
+    display: block;
+    text-decoration: none;
+    border-bottom: medium none;
+    padding: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in 0s, all 1s ease 0s;
+    background: #444749;
+}
+
+footer .facebook:hover {
+  background-color:#365397;
+}
+footer .twitter:hover {
+  background-color:#00a9f1;
+}
+footer .google-plus:hover {
+  background-color:#e0452c;
+}
+footer .youtube:hover {
+  background-color:#ff3333;
+}
+footer .flickr:hover {
+  background-color:#ea0066;
+}
+footer .dribbble:hover {
+  background-color:#ed4584;
+}
+footer .behance:hover {
+  background-color:#3fbff0;
+}
+footer .instagram:hover {
+  background-color:#396d9a;
+}
+footer .vimeo:hover {
+  background-color:#48b6ed;
+}
+footer .tumblr:hover {
+  background-color:#304c68;
+}
+footer .linkedin:hover {
+  background-color:#006db3;
+}
+footer .github:hover {
+  background-color:#2f2f2f;
+}</style>
+  </head>
+  <body>
+    <footer id = "footer"class="section">
+      <div class="container">
+       <p>bagaria.hb@gmail.com</p>
+        <ul>
+          <li><a target="_blank" class="facebook" href="https://www.facebook.com/himanshu.bagaria.92"><i class="fa fa-fw fa-2x fa-inverse fa-facebook"></i></a></li>
+          <li><a target="_blank" class="twitter" href="https://twitter.com/Himanshu4998"><i class="fa fa-fw fa-2x fa-inverse fa-twitter"></i></a></li>
+          
+          <li><a target="_blank" class="linkedin" href="https://www.linkedin.com/in/himanshu-bagaria-51770015b/"><i class="fa fa-fw fa-2x fa-inverse fa-linkedin"></i></a></li>
+          <li><a target="_blank" class="instagram" href="https://www.instagram.com/_hbagaria_"><i class="fa fa-fw fa-2x fa-inverse fa-instagram"></i></a></li>
+          
+          <li><a target="_blank" class="github" href="https://github.com/hbagaria4998"><i class="fa fa-fw fa-2x fa-inverse fa-github"></i></a></li>
+          
+        </ul>
+      </div>
+    </footer>
+
+  </body>
+</html>
   
-  
-
-    <script  src="static/script.js"></script>
-
-
-
-
+ <script  src="static/script.js"></script>
 </body>
 
 </html>
